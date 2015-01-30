@@ -1,4 +1,7 @@
+import java.awt.Canvas;
 
-public class Game {
+
+public class Game extends Canvas{
+
 	
 }
