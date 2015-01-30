@@ -1,2 +1,2 @@
-# JavaTeamWork
-Brick Breaker game
+# Team "Lotte World" - Java Game
+Game Name: Brick Breaker
