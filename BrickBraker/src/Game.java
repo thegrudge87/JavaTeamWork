@@ -11,6 +11,7 @@ public class Game extends Canvas implements Runnable{
 	public static final int HEIGHT = ROWS*SIZE;
 	
 	private Ball ball;
+	public static Board board;
 	
 	private Thread runThread;
 	public Graphics globalGraphics;
@@ -29,12 +30,14 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	public Game(){
-		ball = new Ball();		
+		ball = new Ball();
+		board = new Board();
 	}
 	
 	public void run(){
 		while (gameRunning){
 			ball.tick();
+			board.move();
 			render(globalGraphics);
 			try {
 				Thread.sleep(3);
@@ -48,6 +51,7 @@ public class Game extends Canvas implements Runnable{
 	public void render(Graphics g){
 		g.clearRect(0, 0, WIDTH, HEIGHT);
 		ball.drawBall(g);
+		board.drawBoard(g);
 		this.drawScore(g);
 	}
 	
