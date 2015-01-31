@@ -1,4 +1,5 @@
 import java.applet.Applet;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
@@ -11,8 +12,10 @@ public class GameApp extends Applet{
 		game = new Game();
 		// Set the size of the canvas (game field). 
 		// Shouldn't be bigger than applet size
-		game.setPreferredSize(new Dimension(600, 625));
-		// make the window visible.
+		game.setPreferredSize(new Dimension(Game.WIDTH+100, Game.HEIGHT));
+		game.setBackground(Color.getHSBColor(0.56f, 0.3f, 0.8f));
+		
+		// make the window visible
 		game.setVisible(true);
 		// make the window on focus
 		game.setFocusable(true);
