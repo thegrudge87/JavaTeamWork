@@ -1,9 +1,12 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
 
 public class Ball {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public void drawBall(Graphics g){
+		g.setColor(Color.black);
+		g.fillOval(580, 350, 20,20);
 	}
-
 }
+
