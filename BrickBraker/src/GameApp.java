@@ -7,6 +7,7 @@ import java.awt.Graphics;
 @SuppressWarnings("serial")
 public class GameApp extends Applet{
 	private Game game;
+	InputHandler keyReader;
 	
 	public void init(){
 		game = new Game();
@@ -21,6 +22,7 @@ public class GameApp extends Applet{
 		game.setFocusable(true);
 		this.add(game);
 		this.setVisible(true);
+		keyReader= new InputHandler(game);
 		
 	}
 	
