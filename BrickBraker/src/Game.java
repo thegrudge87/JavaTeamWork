@@ -13,6 +13,9 @@ public class Game extends Canvas implements Runnable{
 	private Ball ball;
 	public static Board board;
 	
+	//add bricks
+	public static Bricks bricks;
+	
 	private Thread runThread;
 	public Graphics globalGraphics;
 	
@@ -32,6 +35,8 @@ public class Game extends Canvas implements Runnable{
 	public Game(){
 		ball = new Ball();
 		board = new Board();
+		
+		bricks = new Bricks();
 	}
 	
 	public void run(){
@@ -52,6 +57,8 @@ public class Game extends Canvas implements Runnable{
 		g.clearRect(0, 0, WIDTH, HEIGHT);
 		ball.drawBall(g);
 		board.drawBoard(g);
+		
+		bricks.drawBricks(g);
 		this.drawScore(g);
 	}
 	
