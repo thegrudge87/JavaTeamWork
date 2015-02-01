@@ -13,6 +13,7 @@ public class GameApp extends Applet{
 		game = new Game();
 		// Set the size of the canvas (game field). 
 		// Shouldn't be bigger than applet size
+		//WIDTH+100 for the scoreboard
 		game.setPreferredSize(new Dimension(Game.WIDTH+100, Game.HEIGHT));
 		game.setBackground(Color.getHSBColor(0.56f, 0.3f, 0.8f));
 		

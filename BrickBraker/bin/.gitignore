@@ -1,8 +1,10 @@
 /Ball.class
 /Board.class
+/BoxBall.class
 /BoxElement.class
+/Brick.class
 /Bricks.class
 /Game.class
 /GameApp.class
 /InputHandler.class
-/BoxBall.class
+/gameMessages.class

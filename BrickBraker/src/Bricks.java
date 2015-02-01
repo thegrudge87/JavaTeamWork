@@ -10,6 +10,7 @@ public class Bricks {
 	
 	public Bricks(){
 		body = new LinkedList<>();
+		// WIDTH = 600, 600/12=50 for each brick.
 		Collections.addAll(body, 
 				new Brick(0, 0),
 				new Brick(1, 0),

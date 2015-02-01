@@ -1,4 +1,10 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
 
 public class gameMessages {
-	//This class will contain the messages of the game.
+	public static void drawNewGame(Graphics g){
+		g.setColor(Color.green);
+		g.drawString("Start a new game", Game.WIDTH, Game.HEIGHT); 
+	}
 }

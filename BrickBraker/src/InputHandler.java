@@ -11,7 +11,7 @@ public class InputHandler implements KeyListener {
 		@Override
 		public void keyPressed(KeyEvent e){
 			if(e.getKeyCode() == KeyEvent.VK_LEFT){
-				Game.board.setNextMove (-1);
+				Game.board.setNextMove (-1);//The board speed is 1
 			}
 			if(e.getKeyCode() == KeyEvent.VK_RIGHT){
 				Game.board.setNextMove (1);
