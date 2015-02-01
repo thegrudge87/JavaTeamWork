@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
+@SuppressWarnings("serial")
 public class Game extends Canvas implements Runnable{
 	public static final int ROWS = 30;
 	public static final int COLS = 30;
