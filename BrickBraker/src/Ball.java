@@ -43,6 +43,7 @@ public class Ball {
 		if(ball.y == Game.HEIGHT-20){
 			//yDirection = -1;
 			Game.gameRunning = false;
+			
 		}
 		if(ball.y == 0){
 			yDirection = 1;

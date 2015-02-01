@@ -19,7 +19,7 @@ public class Game extends Canvas implements Runnable{
 	public static Bricks bricks;
 	
 	private Thread runThread;
-	public Graphics globalGraphics;
+	public static Graphics globalGraphics;
 	
 	static boolean gameRunning = false;
 	
@@ -54,9 +54,10 @@ public class Game extends Canvas implements Runnable{
 				e.printStackTrace();
 			}
 		}
+		this.drawDeath(globalGraphics);// the text when you dead
 	}
 	public static void changeSpeed(){
-		if(score % 60 == 0 && threadSpeed > 4 ){
+		if(score % 60 == 0 && threadSpeed > 3 ){
 			threadSpeed -= 1;
 			
 		}
@@ -79,6 +80,11 @@ public class Game extends Canvas implements Runnable{
 		g.fillRect(Game.WIDTH, 0, 100, Game.HEIGHT);
 		g.setColor(Color.darkGray);
 		g.drawRect(Game.WIDTH, 0, 100, Game.HEIGHT);
+	}
+	private static void drawDeath(Graphics g){
+		g.setColor(Color.red);
+		g.drawString("YOU DIED", Game.WIDTH/2, Game.HEIGHT/2);
+		// drawing death 
 	}
 	
 	

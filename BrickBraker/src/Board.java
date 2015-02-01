@@ -31,8 +31,6 @@ public class Board {
 	public void setSize (int size){
 		this.boardSize=size;
 	}
-	public int getBoardX (){
-		return this.boardX;
-	}
+	
 	
 }
