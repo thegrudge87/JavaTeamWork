@@ -18,13 +18,12 @@ public class Ball {
 	}
 	
 	public void tick(){
-		int boardx = Game.board.getBoardX(); ++Ivan
-		// int boardx = Game.board.x; --Ivan
+		int boardx = Game.board.x;
 		for (Brick brick : Bricks.body) {
 			//int xBrick = (brick.x+1)*Brick.BRICK_SIZE;
 			int yBrick = (brick.y+1)*Brick.BRICK_SIZE;
 			if(ball.y==yBrick){
-				Game.score += 1;  //add score
+				Game.score += 10;  //add score
 				Game.changeSpeed();
 				yDirection = 1;
 			}

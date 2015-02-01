@@ -56,7 +56,7 @@ public class Game extends Canvas implements Runnable{
 		}
 	}
 	public static void changeSpeed(){
-		if(score % 10 == 0 && threadSpeed > 4 ){
+		if(score % 60 == 0 && threadSpeed > 4 ){
 			threadSpeed -= 1;
 			
 		}
