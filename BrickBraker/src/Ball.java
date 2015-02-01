@@ -18,7 +18,8 @@ public class Ball {
 	}
 	
 	public void tick(){
-		int boardx = Game.board.x;
+		int boardx = Game.board.getBoardX(); ++Ivan
+		// int boardx = Game.board.x; --Ivan
 		for (Brick brick : Bricks.body) {
 			//int xBrick = (brick.x+1)*Brick.BRICK_SIZE;
 			int yBrick = (brick.y+1)*Brick.BRICK_SIZE;
