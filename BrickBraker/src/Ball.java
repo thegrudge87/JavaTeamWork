@@ -1,15 +1,17 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
+
 public class Ball {
 	public static BoxBall ball;
+	//public static Game.board board;
 	private int xDirection, yDirection;
 	public Ball(){
 		ball = new BoxBall(570,350);
 		xDirection = -1;
 		yDirection = -1;
 		
-	};
+	}
 	
 	public void drawBall(Graphics g){
 		BoxBall box = ball;
@@ -18,39 +20,35 @@ public class Ball {
 	}
 	
 	public void tick(){
-		int boardx = Game.board.getBoardX(); 
-		for (Brick brick : Bricks.body) {
-			//int xBrick = (brick.x+1)*Brick.BRICK_SIZE;
-			int yBrick = (brick.y+1)*Brick.BRICK_SIZE;
-			if(ball.y==yBrick){
-				Game.score += 10;  //add score
-				Game.changeSpeed();
-				yDirection = 1;
-			}
-			//if(ball.x==xBrick){
-			//}
-		}
+		//while(Game.gameRunning){
+		int boardx = Game.board.getBoardX();
 		
 		if(ball.x>=boardx && ball.x<=boardx+100&&ball.y>Game.HEIGHT-40){
 			yDirection = -1;
 		}
+		
+		
 		if(ball.x == Game.WIDTH-20){
 			xDirection = -1;
 		}
 		if(ball.x == 0){
 			xDirection = 1;
+			
 		}
 		if(ball.y == Game.HEIGHT-20){
 			//yDirection = -1;
 			Game.gameRunning = false;
-			
 		}
 		if(ball.y == 0){
 			yDirection = 1;
 		}
+		//Board v = Game.board;
 		
 		BoxBall nextPos = new BoxBall(ball.x+xDirection, ball.y+yDirection);
 		ball = nextPos;
+		
+		
+		//}
 		
 	}
 
@@ -70,4 +68,3 @@ public class Ball {
 		this.yDirection = yDirection;
 	}
 }
-
