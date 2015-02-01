@@ -3,7 +3,8 @@ import java.awt.Graphics;
 
 
 public class Board {
-	private int x = 300;
+	//private int x = 300; --Maria
+	public int x= 300; //++Maria
 	private int xm = 1;
 	private int boardSize = 100;
 	
