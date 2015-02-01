@@ -3,9 +3,9 @@ import java.awt.Graphics;
 
 
 public class Board {
-	//private int x = 300; --Maria
-	public int x= 300; //++Maria
-	private int xm = 1;
+	private static final int WIDTH = 600;
+	private int boardX = 300;
+	private int nextMove = 0;
 	private int boardSize = 100;
 	
 		public Board (){
@@ -13,26 +13,30 @@ public class Board {
 	}
 	
 	public void move(){
-		if ((x+xm)>1&&(x+xm)< 600-boardSize){
-			x=x+xm;
+		if ((boardX+nextMove)>1&&(boardX+nextMove*2)< WIDTH-boardSize){
+			boardX=boardX+nextMove;
 		}
 	}
 	
 	public void drawBoard (Graphics g){
 		g.setColor(Color.darkGray);
-		g.fillRect(x, 580, boardSize, 15);
+		g.fillRect(boardX, 580, boardSize, 15);
 		
 	}
 	
-	public void setNextMove (int xm){
-			this.xm=xm;
+	public void setNextMove (int nextMove){
+			this.nextMove=nextMove;
 	}
 	
 	public void setSize (int size){
-		this.boardSize=size;
+		if(size>40){
+		this.boardSize=this.boardSize-size;
+		}
 	}
+	
 	public int getBoardX (){
 		return this.boardX;
 	}
-	
 }
+
+
