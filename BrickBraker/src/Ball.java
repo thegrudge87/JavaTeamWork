@@ -24,6 +24,8 @@ public class Ball {
 			//int xBrick = (brick.x+1)*Brick.BRICK_SIZE;
 			int yBrick = (brick.y+1)*Brick.BRICK_SIZE;
 			if(ball.y==yBrick){
+				Game.score += 1;  //add score
+				Game.changeSpeed();
 				yDirection = 1;
 			}
 			//if(ball.x==xBrick){

@@ -12,6 +12,8 @@ public class Game extends Canvas implements Runnable{
 	
 	private Ball ball;
 	public static Board board;
+	public static int threadSpeed;
+	public static int score;
 	
 	//add bricks
 	public static Bricks bricks;
@@ -35,8 +37,9 @@ public class Game extends Canvas implements Runnable{
 	public Game(){
 		ball = new Ball();
 		board = new Board();
-		
+		score = 0;
 		bricks = new Bricks();
+		threadSpeed = 10;
 	}
 	
 	public void run(){
@@ -45,11 +48,17 @@ public class Game extends Canvas implements Runnable{
 			board.move();
 			render(globalGraphics);
 			try {
-				Thread.sleep(10);
+				Thread.sleep(threadSpeed);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+	}
+	public static void changeSpeed(){
+		if(score % 10 == 0 && threadSpeed > 4 ){
+			threadSpeed -= 1;
+			
 		}
 	}
 	
@@ -64,6 +73,8 @@ public class Game extends Canvas implements Runnable{
 	
 	public void drawScore(Graphics g){
 		// set the score board background color
+		g.drawString("score = " + score, 15, 590);
+		g.setColor(Color.black);
 		g.setColor(Color.gray);
 		g.fillRect(Game.WIDTH, 0, 100, Game.HEIGHT);
 		g.setColor(Color.darkGray);
