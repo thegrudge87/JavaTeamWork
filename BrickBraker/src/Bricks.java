@@ -10,7 +10,7 @@ public class Bricks {
 	
 	public Bricks(){
 		body = new LinkedList<>();
-		// WIDTH = 600, 600/12=50 for each brick.
+		//WIDTH = 600, 600/12=50 for each brick.
 		Collections.addAll(body, 
 				new Brick(0, 0),
 				new Brick(1, 0),
@@ -27,6 +27,7 @@ public class Bricks {
 				);
 	}
 	
+	@SuppressWarnings("static-access")
 	public void drawBricks(Graphics g){
 		for (Brick brick : body) {			
 			//Draw each brick [initial color was BLUE]
@@ -39,6 +40,5 @@ public class Bricks {
 			g.drawRect(brick.x * brick.BRICK_SIZE, brick.y * brick.BRICK_SIZE, 
 					brick.BRICK_SIZE, brick.BRICK_SIZE);
 		}
-	}
-	
+	}	
 }
