@@ -13,7 +13,6 @@ public class Game extends Canvas implements Runnable{
 	
 	private Ball ball;
 	public static Board board;
-	public static int threadSpeed;
 	public static int score;
 	
 	//add bricks
@@ -42,9 +41,9 @@ public class Game extends Canvas implements Runnable{
 		msg = new gameMessages();
 		score = 0;
 		bricks = new Bricks();
-		threadSpeed = 10;
 	}
 	
+	@SuppressWarnings("static-access")
 	public void run(){
 		
 		//msg.drawNewGame(globalGraphics);
@@ -54,7 +53,7 @@ public class Game extends Canvas implements Runnable{
 			board.move();
 			render(globalGraphics);
 			try {
-				Thread.sleep(threadSpeed);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -62,25 +61,18 @@ public class Game extends Canvas implements Runnable{
 		}
 		this.drawDeath(globalGraphics);// the text when you dead
 	}
-	public static void changeSpeed(){
-		if(score % 60 == 0 && threadSpeed > 3 ){
-			threadSpeed -= 1;
-			
-		}
-	}
-	
+		
 	public void render(Graphics g){
 		g.clearRect(0, 0, WIDTH, HEIGHT);
 		ball.drawBall(g);
 		board.drawBoard(g);
-		
 		bricks.drawBricks(g);
 		this.drawScore(g);
 	}
 	
 	public void drawScore(Graphics g){
 		// set the score board background color
-		g.drawString("score = " + score, 15, 590);
+		g.drawString("SCORE = " + score, 10, 590);
 		g.setColor(Color.black);
 		g.setColor(Color.gray);
 		g.fillRect(Game.WIDTH, 0, 100, Game.HEIGHT);

@@ -52,6 +52,7 @@ public class Ball {
 				if (brick.x == (ball.x/50)) {
 					yDirection = ballSpeed;
 					bricks_h.body.remove(brick);
+					Game.score += 10; // add score on each hit with a brick
 					break;					
 				}
 			}
