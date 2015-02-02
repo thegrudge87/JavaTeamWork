@@ -71,13 +71,15 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	public void drawScore(Graphics g){
-		// set the score board background color
-		g.drawString("SCORE = " + score, 610, 200);
-		g.setColor(Color.black);
+		// set the score board background color and paint it.
 		g.setColor(Color.gray);
 		g.fillRect(Game.WIDTH, 0, 100, Game.HEIGHT);
+		// set the scoreboard borders
 		g.setColor(Color.darkGray);
 		g.drawRect(Game.WIDTH, 0, 100, Game.HEIGHT);
+		// draw the score on the score board.
+		g.setColor(Color.black);
+		g.drawString("SCORE = " + score, 610, 100);
 	}
 	private static void drawDeath(Graphics g){
 		g.setColor(Color.red);
