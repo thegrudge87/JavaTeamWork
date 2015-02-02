@@ -29,13 +29,13 @@ public class Bricks {
 	
 	public void drawBricks(Graphics g){
 		for (Brick brick : body) {			
-			//Draw each brick
-			g.setColor(Color.BLUE);
+			//Draw each brick [initial color was BLUE]
+			g.setColor(new Color(150,25,14));
 			g.fillRect(brick.x * brick.BRICK_SIZE, brick.y * brick.BRICK_SIZE, 
 					brick.BRICK_SIZE, brick.BRICK_SIZE);
 			
-			//Draw the border of each brick
-			g.setColor(Color.black);
+			//Draw the border of each brick [initial color was BLACK]
+			g.setColor(new Color(174,137,118));
 			g.drawRect(brick.x * brick.BRICK_SIZE, brick.y * brick.BRICK_SIZE, 
 					brick.BRICK_SIZE, brick.BRICK_SIZE);
 		}

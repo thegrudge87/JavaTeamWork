@@ -1,6 +1,7 @@
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 
 
 @SuppressWarnings("serial")
@@ -23,6 +24,7 @@ public class Game extends Canvas implements Runnable{
 	public static gameMessages msg; // for all messages
 	
 	static boolean gameRunning = false;
+	private BufferStrategy bs;
 	
 	public void paint(Graphics g){
 		globalGraphics = g.create();
@@ -63,11 +65,30 @@ public class Game extends Canvas implements Runnable{
 	}
 		
 	public void render(Graphics g){
+		
+        //Setting the bufferStrategy to be the one used in our canvas
+        this.bs = this.getBufferStrategy();
+        if (bs == null) {
+            //Create 2 buffers
+            this.createBufferStrategy(2);
+            //returns out of the method to prevent errors
+            return;
+        }
+        //Instantiates the graphics related to the bufferStrategy
+        g = bs.getDrawGraphics();
+        
+        // Start drawing things on the screen
 		this.drawScore(g);
 		g.clearRect(0, 0, WIDTH, HEIGHT);
 		ball.drawBall(g);
 		board.drawBoard(g);
 		bricks.drawBricks(g);
+		// end of drawing.
+		
+        //Enables the buffer
+        bs.show();
+        //Shows everything stored in the Graphics object
+        g.dispose();
 	}
 	
 	public void drawScore(Graphics g){
