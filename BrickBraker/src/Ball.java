@@ -46,36 +46,21 @@ public class Ball {
 			Game.gameRunning = false;
 		}
 		//The ball hits to the top
-		//if(ball.y == bricks_h.body.getFirst().BRICK_SIZE){
-		else if(ball.y == 50){ // 50 is the size of the brick
+		else if(ball.y <=50){ // 50 is the size of the brick
+			boolean foundBrick = false;
 			for (Brick brick : bricks_h.body) {
 				if (brick.x == (ball.x/50)) {
-					yDirection = ballSpeed;
+					foundBrick = true;
 					bricks_h.body.remove(brick);
-					Game.score += 10; // add score on each hit with a brick
 					break;					
-				}
+				}			
 			}
-		} else if(ball.y == 0) {
-			yDirection = ballSpeed;
+			if(foundBrick){//break the brick
+				yDirection = ballSpeed;
+			} else if(ball.y == 0) {
+				yDirection = ballSpeed;
+			}						
 		}
-		
-		//Second way. We could use it if randomize the ball start.
-//		else if(ball.y <=50){ // 50 is the size of the brick
-//			boolean foundBrick = false;
-//			for (Brick brick : bricks_h.body) {
-//				if (brick.x == (ball.x/50)) {
-//					foundBrick = true;
-//					bricks_h.body.remove(brick);
-//					break;					
-//				}			
-//			}
-//			if(foundBrick){//break the brick
-//				yDirection = ballSpeed;
-//			} else if(ball.y == 0) {
-//				yDirection = ballSpeed;
-//			}						
-//		}
 		//Board v = Game.board;
 		
 		BoxBall nextPos = new BoxBall(ball.x+xDirection, ball.y+yDirection);
