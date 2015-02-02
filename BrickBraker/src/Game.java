@@ -63,16 +63,16 @@ public class Game extends Canvas implements Runnable{
 	}
 		
 	public void render(Graphics g){
+		this.drawScore(g);
 		g.clearRect(0, 0, WIDTH, HEIGHT);
 		ball.drawBall(g);
 		board.drawBoard(g);
 		bricks.drawBricks(g);
-		this.drawScore(g);
 	}
 	
 	public void drawScore(Graphics g){
 		// set the score board background color
-		g.drawString("SCORE = " + score, 10, 590);
+		g.drawString("SCORE = " + score, 610, 200);
 		g.setColor(Color.black);
 		g.setColor(Color.gray);
 		g.fillRect(Game.WIDTH, 0, 100, Game.HEIGHT);
