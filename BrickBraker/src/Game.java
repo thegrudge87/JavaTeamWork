@@ -15,8 +15,6 @@ public class Game extends Canvas implements Runnable{
 	private Ball ball;
 	public static Board board;
 	public static int score;
-	public static String str = "ERROR";
-	public static String color = "ERROR";
 	
 	//add bricks
 	public static Bricks bricks;
@@ -54,9 +52,9 @@ public class Game extends Canvas implements Runnable{
 		//msg.drawNewGame(globalGraphics);
 		
 		while (gameRunning){
+			render(globalGraphics);
 			board.move();
 			ball.tick(bricks);
-			render(globalGraphics);
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {
@@ -64,7 +62,6 @@ public class Game extends Canvas implements Runnable{
 				e.printStackTrace();
 			}
 		}
-		msg.string(globalGraphics, str, color);
 //		this.drawDeath(globalGraphics);// the text when you dead
 	}
 		

@@ -47,12 +47,11 @@ public class Ball {
 		//The ball hits to bottom 
 		else if(ball.y >= Game.HEIGHT-20){
 			//yDirection = -1;
-			Game.str = "YOU DIED";
-			Game.color = "red";
+			msg.string(Game.globalGraphics, "YOU DIED", "red");
 			Game.gameRunning = false;
 		}
 		//The ball hits to the top
-		else if(ball.y <=50 && ball.y >= 0){ // 50 is the size of the brick
+		else if(ball.y <=50){ // 50 is the size of the brick
 			boolean foundBrick = false;
 			for (Brick brick : bricks_h.body) {
 				if (brick.x == (ball.x/50)) {
@@ -60,8 +59,7 @@ public class Ball {
 					bricks_h.body.remove(brick);
 					Game.score += 10; // add score on each hit with a brick
 					if (bricks_h.body.isEmpty()) {
-						Game.str = "YOU WIN";
-						Game.color = "green";
+						msg.string(Game.globalGraphics, "YOU WIN", "green");
 						Game.gameRunning = false;
 					}
 					break;					
@@ -69,7 +67,7 @@ public class Ball {
 			}
 			if(foundBrick){//break the brick
 				yDirection = ballSpeed;
-			} else if(ball.y == 0) {
+			} else if(ball.y <= 0) {
 				yDirection = ballSpeed;
 			}						
 		}
