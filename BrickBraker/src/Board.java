@@ -4,17 +4,18 @@ import java.awt.Graphics;
 
 public class Board {
 	private static final int WIDTH = 600;
+	private static final int initialBoardSize = 100;
 	private int boardX = 300;
 	private int nextMove = 0;
-	private int boardSize = 100;
+	private int boardSize= initialBoardSize;
 	
 		public Board (){
 		//this.game = game;
 	}
 	
 	public void move(){
-		if ((boardX+nextMove)>1&&(boardX+nextMove*2)< WIDTH-boardSize){
-			boardX=boardX+nextMove;
+		if ((boardX+nextMove*5)>1&&(boardX+nextMove*2)< WIDTH-boardSize){
+			boardX=boardX+nextMove*5;
 		}
 	}
 	
@@ -28,9 +29,10 @@ public class Board {
 			this.nextMove=nextMove;
 	}
 	
-	public void setSize (int size){
-		if(size>40){
-		this.boardSize=this.boardSize-size;
+	public void setSize (int score){
+		if(this.boardSize>40){
+		this.boardSize=this.initialBoardSize-5*(score/20);
+		
 		}
 	}
 	
