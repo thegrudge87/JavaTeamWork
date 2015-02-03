@@ -42,7 +42,8 @@ public class Game extends Canvas implements Runnable{
 		board = new Board();
 		msg = new gameMessages();
 		score = 0;
-		bricks = new Bricks();
+		bricks = new Bricks
+		board.setSize(score);
 	}
 	
 	@SuppressWarnings("static-access")
