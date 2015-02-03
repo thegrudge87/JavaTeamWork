@@ -27,6 +27,7 @@ public class Ball {
 	
 	public void tick(Bricks bricks_h){
 		//while(Game.gameRunning){
+		gameMessages msg = new gameMessages(); // messages
 		int boardx = Game.board.getBoardX();
 		
 		//The ball hits the board
@@ -35,10 +36,10 @@ public class Ball {
 		}
 		
 		//The ball hits to the right 
-		else if(ball.x == Game.WIDTH-20){
+		else if(ball.x >= Game.WIDTH-20){
 			xDirection = -ballSpeed;// The ball speed is 1
 		}
-		//The ball hits to the right 
+		//The ball hits to the left 
 		else if(ball.x == 0){
 			xDirection = ballSpeed;
 			
@@ -46,6 +47,8 @@ public class Ball {
 		//The ball hits to bottom 
 		else if(ball.y >= Game.HEIGHT-20){
 			//yDirection = -1;
+			Game.str = "YOU DIED";
+			Game.color = "red";
 			Game.gameRunning = false;
 		}
 		//The ball hits to the top
@@ -56,6 +59,11 @@ public class Ball {
 					foundBrick = true;
 					bricks_h.body.remove(brick);
 					Game.score += 10; // add score on each hit with a brick
+					if (bricks_h.body.isEmpty()) {
+						Game.str = "YOU WIN";
+						Game.color = "green";
+						Game.gameRunning = false;
+					}
 					break;					
 				}			
 			}
