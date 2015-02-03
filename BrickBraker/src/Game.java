@@ -61,6 +61,7 @@ public class Game extends Canvas implements Runnable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			board.setSize(score);
 		}
 //		this.drawDeath(globalGraphics);// the text when you dead
 	}
