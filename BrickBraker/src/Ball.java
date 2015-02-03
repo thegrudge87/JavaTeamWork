@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 
 public class Ball {
@@ -8,8 +9,10 @@ public class Ball {
 	private int xDirection, yDirection;
 	private int ballSpeed;
 	public Ball(){
-		//here is where we set the ball starting point
-		ball = new BoxBall(570,350);
+		//here is where we set the ball starting point - random on Y direction
+		Random randY = new Random();
+		int Y = randY.nextInt(400) + 100;
+		ball = new BoxBall(570,Y);
 		ballSpeed = 2;// The ball speed
 		xDirection = -ballSpeed;
 		yDirection = -ballSpeed;
@@ -41,7 +44,7 @@ public class Ball {
 			
 		}
 		//The ball hits to bottom 
-		else if(ball.y == Game.HEIGHT-20){
+		else if(ball.y >= Game.HEIGHT-20){
 			//yDirection = -1;
 			Game.gameRunning = false;
 		}
