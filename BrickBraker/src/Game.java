@@ -21,7 +21,7 @@ public class Game extends Canvas implements Runnable{
 	
 	private Thread runThread;
 	public static Graphics globalGraphics;
-	public static gameMessages msg; // for all messages
+	public static GameMessages msg; // for all messages
 	
 	static boolean gameRunning = false;
 	private BufferStrategy bs;
@@ -40,7 +40,7 @@ public class Game extends Canvas implements Runnable{
 	public Game(){
 		ball = new Ball();
 		board = new Board();
-		msg = new gameMessages();
+		msg = new GameMessages();
 		score = 0;
 		bricks = new Bricks();
 		board.setSize(score);

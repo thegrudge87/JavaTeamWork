@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-public class gameMessages {
+public class GameMessages {
 	public static void string (Graphics g, String str, String color){
 		switch (color) {
 		case "green":

@@ -27,7 +27,7 @@ public class Ball {
 	
 	public void tick(Bricks bricks_h){
 		//while(Game.gameRunning){
-		gameMessages msg = new gameMessages(); // messages
+		GameMessages msg = new GameMessages(); // messages
 		int boardx = Game.board.getBoardX();
 		
 		//The ball hits the board
