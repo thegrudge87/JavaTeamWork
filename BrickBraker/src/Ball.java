@@ -49,7 +49,7 @@ public class Ball {
 			Game.gameRunning = false;
 		}
 		//The ball hits to the top
-		else if(ball.y <=50){ // 50 is the size of the brick
+		else if(ball.y <=50 && ball.y >= 0){ // 50 is the size of the brick
 			boolean foundBrick = false;
 			for (Brick brick : bricks_h.body) {
 				if (brick.x == (ball.x/50)) {
