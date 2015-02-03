@@ -31,7 +31,7 @@ public class Board {
 	
 	public void setSize (int score){
 		if(this.boardSize>40){
-		this.boardSize=this.initialBoardSize-5*(score/20);
+		this.boardSize=Board.initialBoardSize-5*(score/20);
 		
 		}
 	}
